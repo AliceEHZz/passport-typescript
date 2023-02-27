@@ -1,10 +1,10 @@
-import passport from 'passport';
+import passport from "passport";
 
-import { PassportStrategy } from '../interfaces';
+import { PassportStrategy } from "../interfaces";
 
 export default class PassportConfig {
-    /*
-     FIX ME 😭
+  /*
+     FIXed ME 😭
      The problem with this class is... if the caller forgets to call
      the addStrategies method...our program won't work. 
 
@@ -14,9 +14,14 @@ export default class PassportConfig {
      private from the outside world. This way, we can GUARANTEE that our
      passport strategies are added when this class is created. ⭐️
     */
-    addStrategies(strategies: PassportStrategy[]): void {
-        strategies.forEach((passportStrategy: PassportStrategy) => {
-            passport.use(passportStrategy.name, passportStrategy.strategy);
-        });
-    }
+
+  constructor(strategies: PassportStrategy[]) {
+    this.addStrategies(strategies);
+  }
+
+  addStrategies(strategies: PassportStrategy[]): void {
+    strategies.forEach((passportStrategy: PassportStrategy) => {
+      passport.use(passportStrategy.name, passportStrategy.strategy);
+    });
+  }
 }

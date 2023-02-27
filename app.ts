@@ -1,15 +1,23 @@
 import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
+import { url } from "inspector";
 import path from "path";
-import passportMiddleware from './middleware/passportMiddleware';
+import passportMiddleware from "./middleware/passportMiddleware";
 
 const port = process.env.port || 8000;
 
 const app = express();
 
 app.set("view engine", "ejs");
+// to see the incoming url
+app.use(function (req, res, next) {
+  console.log("RECEIVED REQUEST FROM BROWSER: " + req.url);
+  next();
+});
+
 app.use(express.static(path.join(__dirname, "public")));
+
 app.use(
   session({
     secret: "secret",
@@ -31,6 +39,7 @@ app.use(express.json());
 app.use(expressLayouts);
 app.use(express.urlencoded({ extended: true }));
 passportMiddleware(app);
+// this passportMiddlewarexx
 
 app.use((req, res, next) => {
   console.log(`User details are: `);
