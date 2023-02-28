@@ -6,21 +6,22 @@ const getUserByEmailIdAndPassword = (email: string, password: string) => {
     if (isUserValid(user, password)) {
       return user;
     } else {
-      // has email but incorrect password
       throw new Error("Password is incorrect");
     }
   } else {
-    // email not found
     throw new Error(`Couldn't find user with email: ${email}`);
   }
 };
 
 const getUserById = (id: number) => {
-  let user = userModel.findById(id);
-  if (user) {
-    return user;
+  try {
+    let user = userModel.findById(id);
+    if (user) {
+      return user;
+    }
+  } catch (err) {
+    return null;
   }
-  return null;
 };
 
 function isUserValid(user: Express.User, password: string) {

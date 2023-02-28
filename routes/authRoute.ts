@@ -41,33 +41,10 @@ router.get("/github", passport.authenticate("github"));
 
 router.get(
   "/github/callback",
-  passport.authenticate("github", { failureRedirect: "/login" }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/");
-  }
+  passport.authenticate("github", {
+    successRedirect: "/dashboard",
+    failureRedirect: "/login",
+  })
 );
 
 export default router;
-
-/**
- * app.post("/login", (req, res) => {
- * // if (loginType === "INSTA"){
- * // do instagram login logic
- * }
- * else {
- *
- *  //email and password
- *  const email = req.body.email;
- *  const password = req.body.password;
- *
- * //check the database
- *  const isValid = checkIfUserInDB(email, password);
- * }
- *  if (isValid) {
- * // user is valid, log them in !
- * //create a session
- * // or use express session and do req.session.userID = userIDFromDB: req.session.userID= user.id
- * }
- * })
- */

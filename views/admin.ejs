@@ -1,0 +1,8 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= user.name %>
+</p>
+<p>Current Active Sessions:</p>
+<form action="/admin" method="post">
+    <button type="submit" name="revokeSession"></button>
+</form>
+<a href="/auth/logout" class="btn btn-secondary">Logout</a>
