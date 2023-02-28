@@ -40,9 +40,6 @@ const userModel = {
   },
   /* FIX ME (types) 😭 - 😊 fixed */
   findById: (id: number) => {
-    console.log(`${id}`);
-
-    // console.log(database);
     const user = database.find((user) => user.id === id);
     if (user) {
       return user;

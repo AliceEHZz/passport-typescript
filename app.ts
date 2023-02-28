@@ -42,10 +42,10 @@ passportMiddleware(app);
 // this passportMiddlewarexx
 
 app.use((req, res, next) => {
-  console.log(`User details are: `);
+  console.log(`req.user details are: `);
   console.log(req.user);
 
-  console.log("Entire session object:");
+  console.log("req.session object:");
   console.log(req.session);
 
   console.log(`Session details are: `);

@@ -1,6 +1,9 @@
 import express from "express";
 import passport from "passport";
-import { forwardAuthenticated } from "../middleware/checkAuth";
+import {
+  ensureAuthenticated,
+  forwardAuthenticated,
+} from "../middleware/checkAuth";
 
 // a better way is to declaration merging interfaces.
 // declare module "express-session"{
@@ -46,5 +49,7 @@ router.get(
     failureRedirect: "/login",
   })
 );
+
+
 
 export default router;
