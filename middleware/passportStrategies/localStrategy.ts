@@ -37,7 +37,7 @@ declare module "express" {
 }
 
 /*
-FIXed ME (types) 😭 - fixed
+FIX ME (types) 😭 - fixed 😊
 */
 passport.serializeUser(function (
   user: Express.User,
@@ -48,7 +48,7 @@ passport.serializeUser(function (
 // when the function run, it means the user has been validated, it will store the user in the session. But not the whole user, just ID. Why?  By doing this, you save the time for yourself and skipping the database validation.
 
 /*
-FIX ME (types) 😭 - fixed
+FIX ME (types) 😭 - fixed 😊
 */
 passport.deserializeUser(function (
   id: number,

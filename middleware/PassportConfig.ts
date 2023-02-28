@@ -4,7 +4,7 @@ import { PassportStrategy } from "../interfaces";
 
 export default class PassportConfig {
   /*
-     FIXed ME 😭
+     FIX ME 😭 - fixed 😊
      The problem with this class is... if the caller forgets to call
      the addStrategies method...our program won't work. 
 

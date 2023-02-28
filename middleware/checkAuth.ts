@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 /*
-FIXed ME (types) 😭
+FIX ME (types) 😭 - fixed 😊
 */
 export const ensureAuthenticated = (
   req: Request,
@@ -14,7 +14,7 @@ export const ensureAuthenticated = (
 };
 
 /*
-FIXed ME (types) 😭
+FIX ME (types) 😭 - fixed 😊
 */
 export const forwardAuthenticated = (
   req: Request,
