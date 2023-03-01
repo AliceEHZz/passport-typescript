@@ -50,16 +50,16 @@ router.get("/admin", ensureAuthenticated, (req, res) => {
 
 router.post("/admin/:sessionid", (req, res) => {
   const sessionId = req.params.sessionid;
-  const user = req.user;
   const store = req.sessionStore;
-  if ((user as any).role === "admin") {
-    store.destroy(sessionId, (err) => {
-      throw err;
-    });
-    res.redirect("/admin");
-  } else {
-    res.send("Please login as Admin to destroy the session.");
-  }
+
+  store.destroy(sessionId, (err) => {
+    if (err) {
+      console.log(err);
+      res.send(`destroy err: ${err.message}`);
+    } else {
+      res.redirect("/dashboard");
+    }
+  });
 });
 
 export default router;

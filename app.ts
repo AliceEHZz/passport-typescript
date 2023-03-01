@@ -12,7 +12,7 @@ const app = express();
 app.set("view engine", "ejs");
 // to see the incoming url
 app.use(function (req, res, next) {
-  console.log("RECEIVED REQUEST FROM BROWSER: " + req.url);
+  // console.log("RECEIVED REQUEST FROM BROWSER: " + req.url);
   next();
 });
 
