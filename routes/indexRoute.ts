@@ -50,6 +50,8 @@ router.get("/admin", ensureAuthenticated, (req, res) => {
 
 router.post("/admin/:sessionid", (req, res) => {
   const sessionId = req.params.sessionid;
+  console.log(sessionId);
+  console.log("req.body.session" + req.body.session);
   const store = req.sessionStore;
 
   store.destroy(sessionId, (err) => {

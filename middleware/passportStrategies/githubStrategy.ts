@@ -31,7 +31,7 @@ const githubStrategy: GitHubStrategy = new GitHubStrategy(
     if (existingUser) {
       return done(null, existingUser);
     } else {
-      // Create a new user account with the GitHub profile data
+      // Create a new user with the GitHub profile.id, username
       const newUser = addUserFromGithub({
         id: parseInt(profile.id),
         name: profile.username,
